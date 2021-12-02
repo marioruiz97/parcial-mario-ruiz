@@ -1,0 +1,7 @@
+div#header input {
+  border: 1px solid;
+}
+
+div#header img, div#header h2 {
+  display: inline;
+}
