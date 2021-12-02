@@ -5,8 +5,8 @@ import {
   INGRESO,
   obtenerRegistroVacio,
   validarFormulario,
-} from "../api/formularioMovimiento";
-import { useRegistroMovimiento } from "../hooks/useRegistroMovimiento";
+} from "../../api/formularioMovimiento";
+import { useRegistroMovimiento } from "../../hooks/useRegistroMovimiento";
 
 const RegistroMovimientos = ({ actualizarMovimientos }) => {
   const registroVacio = obtenerRegistroVacio();
