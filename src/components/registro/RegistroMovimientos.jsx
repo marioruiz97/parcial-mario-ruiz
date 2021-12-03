@@ -26,7 +26,7 @@ const RegistroMovimientos = ({ actualizarMovimientos }) => {
   };
 
   return (
-    <aside className="col-5 py-3 border border-3 rounded">
+    <aside className="col-5 py-3 border border-3 rounded align-self-start">
       <h4 className="mb-5">Registro de Movimientos</h4>
       <form className="row px-3" onSubmit={registrarMovimiento}>
         <div className="col-4">
@@ -102,7 +102,7 @@ const RegistroMovimientos = ({ actualizarMovimientos }) => {
           </div>
         </div>
         <hr className="my-4" />
-        <div className="container">
+        <div className="container mb-2">
           <div className="row justify-content-evenly">
             <div className="col-5">
               <button

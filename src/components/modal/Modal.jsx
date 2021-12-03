@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import $ from "jquery";
 import "./Modal.css";
 
-const Modal = ({ id, titulo, texto, confirmacion }) => {
+const Modal = ({ id, titulo, texto }) => {
   const [idModal, setIdModal] = useState(id);
 
   if (id !== idModal) {
@@ -44,13 +44,6 @@ const Modal = ({ id, titulo, texto, confirmacion }) => {
             >
               Cerrar
             </button>
-            {confirmacion ? (
-              <button type="button" className="btn btn-primary">
-                Guardar
-              </button>
-            ) : (
-              ""
-            )}
           </div>
         </div>
       </div>

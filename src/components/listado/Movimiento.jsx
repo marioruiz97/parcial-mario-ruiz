@@ -1,10 +1,14 @@
 import React from "react";
 import { INGRESO } from "../../api/formularioMovimiento";
-import { formatearSaldo } from "../../api/utils";
+import { abrirEditarMovimiento, formatearSaldo } from "../../api/utils";
 
 const Movimiento = ({ movimiento, eliminar }) => {
   const estiloBadge = "badge-valor badge rounded-pill px-4";
   const pl10 = { paddingLeft: "14px" };
+
+  const editar = () => {
+    abrirEditarMovimiento(movimiento);
+  };
 
   return (
     <React.Fragment>
@@ -16,7 +20,7 @@ const Movimiento = ({ movimiento, eliminar }) => {
           >
             <i className="bi bi-trash-fill"></i>
           </button>
-          <button className="btn-noborder btn-editar">
+          <button className="btn-noborder btn-editar" onClick={() => editar()}>
             <i className="bi bi-pencil-fill"></i>
           </button>
           <span style={pl10}> {movimiento.nombre}</span>

@@ -18,7 +18,7 @@ export const validarFormulario = (values) => {
   const result = Number(values.valor) >= 1;
   if (!result) {
     const id = "valor-invalido";
-    abrirModal(id, "Error", "El valor debe ser mayor a cero", false);
+    abrirModal(id, "Error", "El valor debe ser mayor a cero");
   }
   return result;
 };
