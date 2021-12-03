@@ -1,7 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
+import { abrirModal } from "./utils";
 
 export const INGRESO = "ingreso";
 export const GASTO = "gasto";
+export const TODOS = "todos";
 
 export const crearRegistroMovimiento = (values, accion) => {
   const registro = {
@@ -14,7 +16,10 @@ export const crearRegistroMovimiento = (values, accion) => {
 
 export const validarFormulario = (values) => {
   const result = Number(values.valor) >= 1;
-  if (!result) alert("el valor debe ser mayor a cero");
+  if (!result) {
+    const id = "valor-invalido";
+    abrirModal(id, "Error", "El valor debe ser mayor a cero", false);
+  }
   return result;
 };
 

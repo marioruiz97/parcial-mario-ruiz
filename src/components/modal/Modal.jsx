@@ -1,40 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import $ from "jquery";
+import "./Modal.css";
 
-const Modal = ({ titulo, texto, confirmacion }) => {
+const Modal = ({ id, titulo, texto, confirmacion }) => {
+  const [idModal, setIdModal] = useState(id);
+
+  if (id !== idModal) {
+    setIdModal(id);
+  }
+  setTimeout(() => {
+    const modal = $("#" + idModal);
+    window.$(modal).modal("show");
+  }, 200);
+
   return (
     // <!-- Modal -->
     <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
+      className="modal fade"
+      id={id}
+      tabIndex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalLabel">
               {titulo}
             </h5>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Cerrar"
+              aria-label="close"
             ></button>
           </div>
-          <div class="modal-body">{texto}</div>
-          <div class="modal-footer">
+          <div className="modal-body">{texto}</div>
+          <div className="modal-footer">
             <button
               type="button"
-              class="btn btn-outline-danger"
+              className="btn btn-outline-danger"
               data-bs-dismiss="modal"
             >
-              Close
+              Cerrar
             </button>
             {confirmacion ? (
-              <button type="button" class="btn btn-primary">
-                Save changes
+              <button type="button" className="btn btn-primary">
+                Guardar
               </button>
             ) : (
               ""

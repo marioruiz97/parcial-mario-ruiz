@@ -5,7 +5,7 @@ import { formatearSaldo } from "../../api/utils";
 
 const Header = ({ saldoInicial, saldoFinal }) => {
   return (
-    <div id="header" className="row my-5">
+    <div id="header" className="row my-3">
       <div className="col-6">
         <img src={logo} alt="Logo" width="75px" height="75px" />
         <h2>Parcial Programación Distribuida y Paralela</h2>
@@ -29,7 +29,12 @@ const Header = ({ saldoInicial, saldoFinal }) => {
             <label htmlFor="saldo-final">Saldo final:</label>
             <div className="input-group mb-3">
               <span className="input-group-text">$</span>
-              <input id="saldo-final" type="text" value={formatearSaldo(saldoFinal)} readOnly />
+              <input
+                id="saldo-final"
+                type="text"
+                value={formatearSaldo(saldoFinal)}
+                readOnly
+              />
             </div>
           </div>
         </div>

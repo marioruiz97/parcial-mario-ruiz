@@ -26,26 +26,26 @@ const RegistroMovimientos = ({ actualizarMovimientos }) => {
   };
 
   return (
-    <aside className="col-5 pt-3 pb-5 border border-3 rounded">
-      <h4 className="mb-3">Registro de Movimientos</h4>
+    <aside className="col-5 py-3 border border-3 rounded">
+      <h4 className="mb-5">Registro de Movimientos</h4>
       <form className="row px-3" onSubmit={registrarMovimiento}>
         <div className="col-4">
           {/* <!-- Tipo de movimiento --> */}
           <div className="row mb-4">
             <label htmlFor="tipo-movimiento" className="form-label">
-              Tipo de Movimiento
+              Tipo de Movimiento:
             </label>
           </div>
           {/* <!-- Nombre del movimiento --> */}
           <div className="row mb-4">
             <label htmlFor="nombre" className="form-label">
-              Nombre
+              Nombre:
             </label>
           </div>
           {/* <!-- Valor del movimiento --> */}
           <div className="row mb-4">
             <label htmlFor="valor" className="form-label">
-              Valor
+              Valor:
             </label>
           </div>
         </div>
@@ -105,7 +105,11 @@ const RegistroMovimientos = ({ actualizarMovimientos }) => {
         <div className="container">
           <div className="row justify-content-evenly">
             <div className="col-5">
-              <button className="w-100 btn btn-danger btn-lg" type="button">
+              <button
+                className="w-100 btn btn-outline-danger btn-lg"
+                type="button"
+                onClick={limpiarFormulario}
+              >
                 Cancelar
               </button>
             </div>

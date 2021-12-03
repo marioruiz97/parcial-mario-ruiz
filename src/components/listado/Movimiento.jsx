@@ -2,23 +2,24 @@ import React from "react";
 import { INGRESO } from "../../api/formularioMovimiento";
 import { formatearSaldo } from "../../api/utils";
 
-const Movimiento = ({ movimiento }) => {
+const Movimiento = ({ movimiento, eliminar }) => {
   const estiloBadge = "badge-valor badge rounded-pill px-4";
+  const pl10 = { paddingLeft: "14px" };
 
   return (
-    <li
-      key={movimiento.id}
-      className="list-group-item d-flex justify-content-between lh-sm"
-    >
+    <React.Fragment>
       <div>
         <h5 className="my-1">
-          <button className="btn-noborder btn-eliminar">
+          <button
+            className="btn-noborder btn-eliminar"
+            onClick={() => eliminar(movimiento)}
+          >
             <i className="bi bi-trash-fill"></i>
           </button>
           <button className="btn-noborder btn-editar">
             <i className="bi bi-pencil-fill"></i>
           </button>
-          {movimiento.nombre}
+          <span style={pl10}> {movimiento.nombre}</span>
         </h5>
       </div>
       <span
@@ -30,7 +31,7 @@ const Movimiento = ({ movimiento }) => {
       >
         {formatearSaldo(movimiento.valor)}
       </span>
-    </li>
+    </React.Fragment>
   );
 };
 

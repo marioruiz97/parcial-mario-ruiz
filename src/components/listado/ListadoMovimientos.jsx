@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Filtros from "./Filtros";
 import Movimiento from "./Movimiento";
 
-const ListadoMovimientos = ({ movimientos }) => {
+const ListadoMovimientos = ({ movimientos, eliminarMovimiento }) => {
+  const [mostrados, setMostrados] = useState(movimientos);
+
+  const filtrar = useCallback((listaFiltrada) => {
+    setMostrados(listaFiltrada);
+  }, []);
+
   return (
     <aside className="col-5 py-3 border border-3 rounded">
-      <h4 className="d-flex justify-content-between align-items-center mb-3">
+      <h4 className="d-flex justify-content-between align-items-center mb-5">
         <span className="text-primary">Listado de Movimientos</span>
         <span className="badge bg-primary rounded-pill">
           {movimientos.length}
@@ -13,12 +19,19 @@ const ListadoMovimientos = ({ movimientos }) => {
       </h4>
 
       {/* <!-- formulario para filtrar los movimientos --> */}
-      <Filtros />
+      <Filtros movimientos={movimientos} filtrar={filtrar} />
 
-      {/* <!-- items: cada movimiento --> */}
+      {/* <!-- listado de movimientos --> */}
       <ul className="list-group mb-3">
-        {movimientos.map((mov) => {
-          return <Movimiento movimiento={mov} />;
+        {mostrados.map((mov) => {
+          return (
+            <li
+              key={mov.id}
+              className="list-group-item d-flex justify-content-between lh-sm"
+            >
+              <Movimiento movimiento={mov} eliminar={eliminarMovimiento} />
+            </li>
+          );
         })}
       </ul>
     </aside>
