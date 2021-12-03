@@ -55,7 +55,6 @@ const useMovimientos = (saldoInicial, initialState) => {
   const validarEdicion = (movNuevo) => {
     const saldoActual = calcularSaldo(movimientos);
     const movViejo = movimientos.find((mov) => mov.id === movNuevo.id);
-
     // no cambia de tipo y es ingreso
     if (movNuevo.tipo === movViejo.tipo && movNuevo.tipo === INGRESO)
       return saldoActual - movViejo.valor + movNuevo.valor >= 0;

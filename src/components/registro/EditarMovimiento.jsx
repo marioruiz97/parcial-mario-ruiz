@@ -15,12 +15,11 @@ const EditarMovimiento = ({ movimiento }) => {
   const [values, handleChange, setMovimiento] = useEditarMovimiento(movimiento);
   const { nombre, tipo, valor } = values;
 
-  useEffect(() => {    
-    if (prevState !== movimiento) {      
+  useEffect(() => {
+    if (prevState !== movimiento) {
       setPrevState(movimiento);
       setMovimiento(movimiento);
     }
-    return () => console.log("desmontando");
   }, [movimiento, prevState, setPrevState, values, setMovimiento]);
 
   const editar = (e) => {
@@ -29,7 +28,7 @@ const EditarMovimiento = ({ movimiento }) => {
       const eventoEditar = new CustomEvent(EDITAR_MOVIMIENTO, {
         detail: { ...values, valor: Number(values.valor) },
       });
-      window.dispatchEvent(eventoEditar);      
+      window.dispatchEvent(eventoEditar);
     }
     cerrarModal();
   };
